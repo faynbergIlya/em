@@ -1,18 +1,34 @@
 import React, { PropTypes, Component } from 'react'
+import ReactDOM from 'react-dom'
 import { default as Video, Controls, Play, Mute, Seek, Fullscreen, Time, Overlay } from 'react-html5video'
 import VideoList from './VideoList'
 
+
 class VideoContainer extends Component{
     state={
-        url:''
+        url:'',
+        key:''
     }
+
+
+
+    changeUrl(u, key){
+        console.log(this.refs.video)
+        this.setState({
+            url:u,
+            key:key
+        })
+
+    }
+
+
     render(){
         return (
             <div>
-            <Video controls autoPlay loop muted>
-            <source src="https://cdn-dev.elasticmedia.io/video/48d0db58-f7a5-46df-a011-130cfac68cf2.mp4" type="video/webm" />
+            <Video key={this.state.key} controls autoPlay loop muted>
+            <source src={this.state.url} type="video/webm" />
             </Video>
-            <VideoList />
+            <VideoList onUrlChange={this.changeUrl.bind(this)}/>
             </div>
         )
     }

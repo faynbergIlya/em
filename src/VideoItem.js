@@ -3,13 +3,21 @@ import React, { PropTypes, Component } from 'react'
 
 class VideoItem extends Component{
 
+    handleCLick=(ev)=>{
+        ev.preventDefault()
+        //this.props.onUrlChange("dasdasdasd")
+        this.props.onUrlChange(this.props.url, this.props.id)
+
+    }
     render(){
         const {name, url} = this.props
-        console.log(url)
+
         return(
-            <div>
-            {name} {url}
-            </div>
+            <a href="#" onClick={this.handleCLick}>
+
+            {name}
+
+        </a>
 
         )
     }
