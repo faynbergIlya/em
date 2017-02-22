@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react'
 import ReactDOM from 'react-dom'
 import { default as Video, Controls, Play, Mute, Seek, Fullscreen, Time, Overlay } from 'react-html5video'
 import VideoList from './VideoList'
+import PlayPauseExtButton from './PlayPauseExtButton'
 
 
 class VideoContainer extends Component{
@@ -13,7 +14,6 @@ class VideoContainer extends Component{
 
 
     changeUrl(u, key){
-        console.log(this.refs.video)
         this.setState({
             url:u,
             key:key
@@ -24,7 +24,9 @@ class VideoContainer extends Component{
 
     render(){
         return (
+
             <div>
+
             <Video key={this.state.key} controls autoPlay loop muted>
             <source src={this.state.url} type="video/webm" />
             </Video>

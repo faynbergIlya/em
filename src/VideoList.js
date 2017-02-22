@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react'
 import {clips as videos} from '../data/fixtures'
 import VideoItem from './VideoItem'
 
+
 class VideoList extends Component{
 
     componentDidMount(){
@@ -14,14 +15,15 @@ class VideoList extends Component{
         name={vid.name}
         url={vid.url}
         id={vid.id}
-
     />
     </li>)
         return(
+            <div className="controls_container">
+
             <ul>
             {videoElements}
             </ul>
-
+            </div>
 
 
         )
