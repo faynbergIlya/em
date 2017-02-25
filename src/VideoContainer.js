@@ -10,7 +10,7 @@ class VideoContainer extends Component{
     state={
         url:'',
         key:'',
-        play:false,
+        play:true,
         currentVideoId:0
     }
 
@@ -18,7 +18,8 @@ class VideoContainer extends Component{
         this.setState({
             url:u,
             key:key,
-            currentVideoId:id
+            currentVideoId:id,
+            play:false
         })
 
     }
